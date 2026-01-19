@@ -20,6 +20,7 @@ This project was developed as part of the **Landmine Soft Java Developer Assignm
 ---
 
 ## 📁 Project Structure
+```
 src/main/java/com/hospital/management
 ├── controller        // REST APIs
 ├── service           // Business logic
@@ -27,6 +28,7 @@ src/main/java/com/hospital/management
 ├── entity            // Database entities
 ├── exception         // Global exception handling
 └── HospitalManagementApplication.java
+```
 
 
 ---
