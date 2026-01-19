@@ -1,0 +1,237 @@
+{
+	"info": {
+		"_postman_id": "a57f485f-9331-40fb-bd55-3f1bc24dc70f",
+		"name": "Hospital Management System – Landmine Soft",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	],
+	"item": [
+		{
+			"name": "Patients",
+			"item": [
+				{
+					"name": "Create Patient",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Vishnu\",\n  \"age\": 19,\n  \"phone\": \"8919142386\",\n  \"email\": \"vishnu@gmail.com\",\n  \"password\": \"vishnu123\",\n  \"address\": \"Hyderabad\",\n  \"gender\": \"MALE\",\n  \"bloodGroup\": \"B-\",\n  \"emergencyContact\": \"8919142386\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/patients",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "patients"]
+						}
+					}
+				},
+				{
+					"name": "Get All Patients",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/patients",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "patients"]
+						}
+					}
+				},
+				{
+					"name": "Get Patient By ID",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/patients/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "patients", "1"]
+						}
+					}
+				},
+				{
+					"name": "Update Patient",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Vishnu Updated\",\n  \"age\": 20,\n  \"phone\": \"9999999999\",\n  \"email\": \"vishnu.updated@gmail.com\",\n  \"password\": \"newpass123\",\n  \"address\": \"Bangalore\",\n  \"gender\": \"MALE\",\n  \"bloodGroup\": \"B-\",\n  \"emergencyContact\": \"9999999999\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/patients/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "patients", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Patient",
+					"request": {
+						"method": "DELETE",
+						"url": {
+							"raw": "{{baseUrl}}/api/patients/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "patients", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Appointments",
+			"item": [
+				{
+					"name": "Book Appointment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"doctorId\": 10,\n  \"appointmentDate\": \"2026-01-20\",\n  \"timeSlot\": \"10:30\",\n  \"symptoms\": \"Fever and headache\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/patients/1/appointments",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "patients", "1", "appointments"]
+						}
+					}
+				},
+				{
+					"name": "Get Patient Appointments",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/patients/1/appointments",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "patients", "1", "appointments"]
+						}
+					}
+				},
+				{
+					"name": "Cancel Appointment",
+					"request": {
+						"method": "PATCH",
+						"url": {
+							"raw": "{{baseUrl}}/api/patients/appointments/1/cancel",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "patients", "appointments", "1", "cancel"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Medical Records",
+			"item": [
+				{
+					"name": "Add Medical Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"patientId\": 1,\n  \"appointmentId\": 1,\n  \"diagnosis\": \"Viral Fever\",\n  \"prescription\": \"Paracetamol\",\n  \"dosageInstructions\": \"Twice a day\",\n  \"notes\": \"Rest and hydration\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/doctors/10/records",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "doctors", "10", "records"]
+						}
+					}
+				},
+				{
+					"name": "Get Patient Medical Records",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/doctors/patients/1/records",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "doctors", "patients", "1", "records"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "Create Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"appointmentId\": 1,\n  \"patientId\": 1,\n  \"doctorId\": 10,\n  \"amount\": 500.00,\n  \"paymentMethod\": \"UPI\",\n  \"transactionId\": \"TXN12345\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/payments",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "payments"]
+						}
+					}
+				},
+				{
+					"name": "Update Payment Status",
+					"request": {
+						"method": "PATCH",
+						"url": {
+							"raw": "{{baseUrl}}/api/payments/1/status?status=PAID",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "payments", "1", "status"],
+							"query": [
+								{ "key": "status", "value": "PAID" }
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Get Admin Revenue",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/admin/revenue?doctorId=10&from=2026-01-01&to=2026-01-31",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "admin", "revenue"],
+							"query": [
+								{ "key": "doctorId", "value": "10" },
+								{ "key": "from", "value": "2026-01-01" },
+								{ "key": "to", "value": "2026-01-31" }
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Dashboard Stats",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/api/admin/stats",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "admin", "stats"]
+						}
+					}
+				}
+			]
+		}
+	]
+}

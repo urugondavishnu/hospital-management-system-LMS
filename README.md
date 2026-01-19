@@ -151,11 +151,30 @@ Adding a medical record automatically marks the appointment as COMPLETED.
   - 200 / 204 – Success
 
 ### 📬 Postman Collection
-Collection name:
-```Hospital Management System – Landmine Soft```
-- Includes all APIs grouped by module
-- Uses ```{{baseUrl}}``` variable
-- Exported in **Postman v2.1** format
+
+All REST APIs in this project are documented and tested using Postman.
+
+**📁 Location in Repository**
+
+The Postman collection is available at:
+```/postman/Hospital_Management_System_LandmineSoft.postman_collection.json```
+
+### 🚀 How to Use the Collection
+
+1. Open Postman
+2. Click Import
+3. Select the file: ```Hospital_Management_System_LandmineSoft.postman_collection.json```
+4. Ensure the application is running locally
+5. Set the collection variable: 
+  ```
+  baseUrl = http://localhost:8080 
+  ```
+6. Execute the requests folder-wise in order
+
+The collection is compatible with Postman v2.1 format
+
+
+
 
 ### ✅ Features Implemented
 - Full Patient CRUD 
