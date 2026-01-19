@@ -203,7 +203,7 @@ http://localhost:8080/swagger-ui.html
 - Interactive API testing support
 
 **Screenshots are added in the docs folder :**
-```hospital-management\hospital-management\docs```
+```/docs/swagger```
 
 ### 👨‍💻 Author
 
